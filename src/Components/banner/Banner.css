@@ -1,0 +1,87 @@
+.wrapper{
+    max-width: 1280px;
+    width: 90%;
+    margin: 0 auto;   
+}
+.banner{
+    padding: 2rem 0 0rem 0;
+}
+.banner .left{
+    background-color: black;
+    width: 50%;
+    display: flex;
+    border-radius: 10px 0px 0px 10px;
+    padding: 5rem 0 7rem 5rem;
+}
+.banner .banner-container .right{
+    background-image: url(../Assets/bg-main.jpg);
+    width: 50%;
+    background-repeat: no-repeat;
+    border-radius: 0px 10px 10px 0px;
+    margin: 0;
+}
+.apple{
+    width: 45%;
+}
+.banner-container {
+    width: 100%;
+    display: flex;
+}
+.wrapper .banner-container .left ul{
+    justify-content: center;
+}
+.left ul li h1{
+    font-size: 50px;
+    color: #fff;
+    margin: 1rem 0;
+}
+.left ul li a{
+    color: #fff;
+}
+.left ul li a span{
+    width: 12%;
+    display: block;
+    margin-left: .5rem;
+}
+.left ul :last-child{
+    display: flex;
+}
+.left ul li a span img{
+    color: #fff;
+}
+
+@media all and (max-width:1280px){
+    .banner .left {
+        padding: 5rem 0 7rem 3rem;
+    }    
+    .banner .banner-container .right {
+        width: 70%;
+    }
+}
+@media (max-width: 1080px) {
+    .banner .banner-container .right {
+        width: 85%;
+    }
+}
+@media (max-width: 980px) {
+    .banner .banner-container .right {
+       display: none;
+    }
+    .left ul li h1 {
+        font-size: 40px;
+    }
+    .banner .left {
+        width: 100%;
+        border-radius: 10px;
+        justify-content: center;
+        padding: 5rem;
+    }     
+}
+    @media (max-width: 540px) {
+    .left ul li h1 {
+        font-size: 30px;
+    }
+    .apple {
+        width: 55%;
+    }
+}

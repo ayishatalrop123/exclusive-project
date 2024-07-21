@@ -1,0 +1,31 @@
+
+.wishlist-page {
+    padding: 20px;
+
+}
+
+.wishlist-page h2 {
+    margin-bottom: 20px;
+}
+
+
+.wishlist-items {
+    
+    align-items: center;
+    margin-bottom: 40px;
+}
+.wishlist-items div{
+    margin: 1rem;
+}
+.wishlist-items img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.wishlist-items div div h4{
+    font-size: 14px;
+}
+.wishlist-items div div p{
+    font-size: 12px;
+}

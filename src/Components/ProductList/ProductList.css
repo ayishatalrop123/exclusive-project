@@ -1,0 +1,8 @@
+.product-main{
+    padding: 5rem;
+}
+@media all and (max-width:540px){
+    .product-main{
+        padding: 0rem;
+    }
+}

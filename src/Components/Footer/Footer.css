@@ -1,0 +1,113 @@
+.footer{
+    background-color: #000;
+    width: 100%;
+    box-sizing: border-box;
+}
+.footer .wrapper ul{
+    display: flex;
+    padding: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+.footer .wrapper ul li{
+   width: 20%;
+}
+li h4{
+    font-size: 17px;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+li h5, li h6{
+    color: #fff;
+    margin-bottom: 1rem;
+}
+ .para{
+    color: #fff;
+    font-size: 12px;
+    margin: .5rem 0;
+}
+.footer .wrapper ul li a{
+    color: #fff;
+    display: block;
+    font-size: 11px;
+    margin: 1rem 0;
+}
+li .inputbox{
+    display: flex;
+    border:1px solid #fff;
+    width: 70%;
+    padding: .5rem;
+    border-radius: 5px;
+    margin-top: .5rem;
+    align-items: center;
+}
+input{
+    background-color: #000;
+    outline: none;
+    border: none;
+    color: #fff;
+    width: 90%;
+}
+.inputbox span{
+    display: block;
+    width: 10%;
+}
+.footer .wrapper ul li .social{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+.qr{
+    width: 80%;
+}
+
+@media all and (max-width:1080px){
+    li .inputbox {
+        width: 88%;
+    }
+}
+@media all and (max-width:980px){
+    .footer .wrapper ul {
+        padding: .5rem;
+    }
+    .footer .wrapper ul li a {
+        margin: 1rem 3px;
+    }
+    input::placeholder{
+        font-size: 12px;
+    }
+    input{
+        width: 100%;
+    }
+    .footer .wrapper ul li {
+        width: 28%;
+        margin: 1rem;
+    }
+}
+@media all and (max-width:540px){
+    li h4 {
+        font-size: 12px;
+    }
+    li h5, li h6 {
+        font-size: 11px;
+    }
+    .para {
+        font-size: 10px;
+    }
+    li .inputbox {
+        width: 100%;
+    }
+    input::placeholder{
+        font-size: 10px;
+    }
+    li .inputbox {
+        padding: .2rem;
+    }   
+}
+@media all and (max-width:540px){
+    .footer .wrapper ul li {
+        width: 38%;
+        margin: 1rem;
+    }
+}

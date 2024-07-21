@@ -1,0 +1,31 @@
+
+.cart {
+    padding: 20px;
+}
+
+.cart h2 {
+    margin-bottom: 20px;
+}
+
+.cart p{
+    font-size: 15px;
+}
+.cart ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cart ul li {
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+}
+
+.cart li img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.cart ul li div h4{
+    color: #000;
+}
