@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Top from './Components/Top/Top';
 import Footer from './Components/Footer/Footer';
 import Shop from './pages/Shop';
@@ -15,24 +15,42 @@ import './App.css';
 
 const Layout = ({ children, onSearchChange }) => {
   const location = useLocation();
-  const noHeaderFooterRoutes = ['/signup', '/login']; 
+  const noHeaderFooterRoutes = ['/signup', '/login'];
 
   const shouldHideHeaderFooter = noHeaderFooterRoutes.includes(location.pathname);
 
   return (
     <>
-      {!shouldHideHeaderFooter && <Top />}
+      {!shouldHideHeaderFooter && <Top onSearchChange={onSearchChange} />}
       {children}
       {!shouldHideHeaderFooter && <Footer />}
     </>
   );
 };
 
+const ProtectedRoute = ({ element: Component, isAuthenticated, ...rest }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [isAuthenticated, navigate, location]);
+
+  return isAuthenticated ? <Component {...rest} /> : null;
+};
+
 const App = () => {
   const [searchKeyword, setSearchKeyword] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleSearchChange = (newSearchKeyword) => {
     setSearchKeyword(newSearchKeyword);
+  };
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
   };
 
   return (
@@ -44,13 +62,14 @@ const App = () => {
               path="*"
               element={
                 <Layout onSearchChange={handleSearchChange}>
-                  <Routes>                  
-                    <Route path="/signup" element={<LoginSignup />} />
-                    <Route path="/" element={<Shop />} />
-                    <Route path="/product/:id" element={<Product />} />
-                    <Route path="/wishlist" element={<WishList />} />
-                    <Route path="/cart" element={<Cart />} />
-                    <Route path="/category" element={<Category searchKeyword={searchKeyword} />} />
+                  <Routes>
+                    <Route path="signup" element={<LoginSignup onLogin={handleLogin} />} />
+                    <Route path="login" element={<LoginSignup onLogin={handleLogin} />} />
+                    <Route path="/" element={<ProtectedRoute element={Shop} isAuthenticated={isAuthenticated} />} />
+                    <Route path="product/:id" element={<ProtectedRoute element={Product} isAuthenticated={isAuthenticated} />} />
+                    <Route path="wishlist" element={<ProtectedRoute element={WishList} isAuthenticated={isAuthenticated} />} />
+                    <Route path="cart" element={<ProtectedRoute element={Cart} isAuthenticated={isAuthenticated} />} />
+                    <Route path="category" element={<ProtectedRoute element={Category} isAuthenticated={isAuthenticated} searchKeyword={searchKeyword} />} />
                   </Routes>
                 </Layout>
               }

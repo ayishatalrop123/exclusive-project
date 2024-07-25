@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
 import './css/Cart.css';
 import { useCart } from '../contexts/CartContext';
+import Navbar from '../Components/Navbar/Navbar';
 
 
 const Cart = () => {
@@ -10,6 +11,8 @@ const Cart = () => {
 
 
     return (
+        <>
+        <Navbar/>
         <div className='cart'>
             <h2>Your Cart</h2>
             {cart.length === 0 ? (
@@ -28,6 +31,7 @@ const Cart = () => {
                 </ul>
             )}
         </div>
+        </>
     );
 };
 

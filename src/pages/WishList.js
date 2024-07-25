@@ -2,12 +2,15 @@
 import React from 'react';
 import { useWishlist } from '../contexts/WishlistContext';
 import Item from '../Components/Item/Item';
+import Navbar from '../Components/Navbar/Navbar';
 import './css/WishList.css';
 
 const WishList = () => {
     const { wishlist } = useWishlist();
 
     return (
+        <>
+        <Navbar/>
         <div className='wishlist-page'>
             <h2>Your Wishlist</h2>
             <div className='wishlist-items'>
@@ -22,6 +25,7 @@ const WishList = () => {
                 ))}
             </div>
         </div>
+        </>
     );
 };
 
